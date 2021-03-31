@@ -5,18 +5,32 @@ import content from "./data/content.json";
 
 const pages = content.pages;
 const menu = [];
-pages.forEach((ele) => {
-  menu.push(ele.title);
+const bg = [];
+pages.map((value) => {
+  menu.push(value.title);
+
+  require(`./img/backgrounds/${value.blocks[0].background}`);
+  bg.push(`./img/backgrounds/${value.blocks[0].background}`);
+  console.log(bg);
 });
+
 // console.log(menu);
 const LayoutLevel = (info) => {
+  console.log(info.changePage);
   return (
-    <div className="layout">
+    <div className="layout max-width-1440">
       <div className="left verticle" id="menu-box">
         <img id="abc" src={logo} className="App-logo" alt="logo" />
-        <a className="menu-btn">{menu[0]}</a>
-        <a className="menu-btn">{menu[1]}</a>
-        <a className="menu-btn">{menu[2]}</a>
+        <a className="menu-btn" onClick={() => info.changePage(0)}>
+          {menu[0]}
+        </a>
+        <a className="menu-btn" onClick={() => info.changePage(1)}>
+          {" "}
+          {menu[1]}
+        </a>
+        <a className="menu-btn" onClick={() => info.changePage(2)}>
+          {menu[2]}
+        </a>
       </div>
       <div className="right">
         <button id="contactUs">Contect Us</button>
@@ -24,41 +38,23 @@ const LayoutLevel = (info) => {
     </div>
   );
 };
-const PageLevel = (props) => {
-  // console.log(page, page.page.headline);
-  const Headline = (props) => {
-    // console.log(text, text.headline);
-    return (
-      <div>
-        <h1 id="headline">{props.headline}</h1>
-      </div>
-    );
-  };
-  const Subhead = (props) => {
-    console.log(props);
-    return (
-      <div>
-        <p id="subhead">{props.subhead}</p>
-      </div>
-    );
-  };
-  const CTA = (props) => {
-    return (
-      <div id="call-to-action">
-        <p className="left" id="cta-text">
-          {props.cta}
-        </p>
-        <p className="right" id="LETS-TALK">
-          Let's talk
-        </p>
-      </div>
-    );
-  };
+const CTA = (props) => {
   return (
-    <div className="page">
-      <Headline headline={props.page.headline} />
-      <Subhead subhead={props.page.subhead} />
-      <CTA cta={props.page.cta} />
+    <div id="call-to-action">
+      <p className="left" id="cta-text">
+        {props.cta}
+      </p>
+      <p className="right" id="LETS-TALK">
+        Let's talk
+      </p>
+    </div>
+  );
+};
+const PageLevel = (props) => {
+  return (
+    <div className="page max-width-1440">
+      <p id="headline">{props.page.headline}</p>
+      <p id="subhead">{props.page.subhead}</p>
     </div>
   );
 };
@@ -68,26 +64,20 @@ function App() {
   const texts = pages[curPage].blocks[0];
   const changePage = (e) => {
     console.log(e);
-    // setCurPage(e);
+    setCurPage(e);
   };
-  console.log(texts.background);
-  const bg = "url(img/backgrounds/slide_one.jpg)";
-  //`url(img/backgrounds/${texts.background} )`;
-  console.log(bg);
   return (
     <div
       className="App"
-      // style={{
-      //   backgroundImage: `url(${
-      //     process.env.PUBLIC_URL + "/img/backgrounds/slide_one.jpg"
-      //   })`,
-      //   backgroundRepeat: "no-repeat",
-      // }}
+      style={
+        {
+          // backgroundImage: `url(${bg[curPage]})`,
+        }
+      }
     >
-      <div className="container">
-        <LayoutLevel changePage={changePage} />
-        <PageLevel page={texts} />
-      </div>
+      <LayoutLevel changePage={changePage} />
+      <PageLevel page={texts} />
+      <CTA cta={texts.cta} />
     </div>
   );
 }

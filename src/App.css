@@ -8,24 +8,34 @@
   display: flex;
   flex-direction: column;
 }
-/* .container {
-  margin: 20px 20px 0 20px;
-} */
+
+.max-width-1440 {
+  max-width: 1440px;
+}
+
 .layout {
+  display: inline-block;
   margin: 25px 10%;
-  height: 30vh;
+  height: 18vh;
 }
+
 .page {
-  height: 70vh;
+  height: 60vh;
+  flex-direction: row;
+  position: relative;
+  vertical-align: middle;
 }
+
 .right {
   width: 50%;
   float: right;
 }
+
 .left {
   width: 50%;
   float: left;
 }
+
 .verticle {
   display: flex;
   flex-direction: column;
@@ -52,22 +62,14 @@
   background-color: tomato;
 } */
 
-/* .App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
 #menu-box {
   display: flex;
   flex-direction: column;
 }
 #call-to-action {
+  height: 12vh;
   background-color: white;
-  height: 10vw;
+  /* height: 10vw; */
   width: 80vw;
   bottom: 0;
   position: absolute;
@@ -82,9 +84,14 @@
   border: solid 2px white;
   float: right;
 }
+
 #headline {
-  width: 38.25rem;
-  height: 17rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  vertical-align: middle;
+  width: 50vw;
   font-family: HelveticaNeue;
   font-size: 5.25rem;
   font-weight: bold;
@@ -92,11 +99,21 @@
   letter-spacing: -2.2px;
   color: white;
 }
+#subhead {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(100%, -50%);
+  width: 50vw;
+  font-family: HelveticaNeue;
+  font-size: 0.875rem;
+  line-height: 1.86;
+  color: white;
+}
 
 #LETS-TALK {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  margin-top: 40px;
   height: 100%;
   font-family: HelveticaNeue;
   font-size: 0.688rem;
@@ -104,8 +121,7 @@
   letter-spacing: 1px;
 }
 #cta-text {
-  display: flex;
-  justify-content: center;
+  display: inline-block;
   align-items: center;
   height: 100%;
   font-family: HelveticaNeue;
@@ -113,76 +129,3 @@
   font-weight: bold;
   letter-spacing: -0.63px;
 }
-/* 
-.Nemo-enim-ipsam-volu {
-  width: 30.188rem;
-  height: 2rem;
-  margin: 0 13.75rem 0 0;
-  font-family: HelveticaNeue;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.33;
-  letter-spacing: -0.63px;
-  color: var(--black);
-}
-
-#abc {
-  width: 4.728rem;
-  height: 2.363rem;
-  margin: 0 44.043rem 15.958rem 0.166rem;
-  object-fit: contain;
-  background-color: var(--white);
-}
-
-#subhead {
-  width: 22.5rem;
-  height: 14.188rem;
-  margin: 11.563rem 2.5rem 4.313rem 10.688rem;
-  font-family: HelveticaNeue;
-  font-size: 0.875rem;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.86;
-  letter-spacing: normal;
-  color: var(--white);
-}
-#headline {
-  width: 38.25rem;
-  height: 17rem;
-  margin: 10.125rem 10.688rem 2.938rem 0;
-  font-family: HelveticaNeue;
-  font-size: 5.25rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: -2.2px;
-  color: var(--white);
-}*/
-/* #menu {
-  width: 4.563rem;
-  height: 4.875rem;
-  margin: 0.313rem 59.875rem 0 0;
-  font-family: HelveticaNeue;
-  font-size: 0.875rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.86;
-  letter-spacing: normal;
-  color: var(--white);
-}  */
-/*
-.menu .text-style-1 {
-  color: #ffc004;
-}
-.logo {
-  width: 4.728rem;
-  height: 2.363rem;
-  margin: 0 44.043rem 15.958rem 0.166rem;
-  object-fit: contain;
-  background-color: var(--white);
-} */
